@@ -1,13 +1,10 @@
-
-exports.seed = function(knex, Promise) {
+exports.seed =  async function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
+  await knex('authors').del();
+  await knex.raw("ALTER TABLE authors ALTER COLUMN author_id RESTART WITH 1");
+  await knex('publications').del();
+  await knex('author_services').del();
+  await knex.raw("INSERT INTO authors () VALUES ('')");
+  await knex.raw("INSERT INTO publicaitons () VALUES ('',1)");
+
 };
