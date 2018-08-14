@@ -4,4 +4,4 @@
 
 - This is an Express node backend server for the anthology database.
 
-- It accesses the anthology Postgres database using Knex.
+- It accesses the anthology Postgres database using Knex as the ORM.
